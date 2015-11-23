@@ -3295,6 +3295,10 @@ GtkVolumeButton.button {
     .titlebar {
       border-width: 0;
       box-shadow: none;
+
+      @if ($variant == 'dark') {
+        background-image: none;
+      }
     }
   }
   &.csd {
