@@ -1,10 +1,10 @@
 [X-GNOME-Metatheme]
 Name=Ghost
 Type=X-GNOME-Metatheme
-Comment=There is only one
+Comment=Adwaita Ghost
 Encoding=UTF-8
 GtkTheme=Ghost
 MetacityTheme=Adwaita
-IconTheme=Adwaita
-CursorTheme=Adwaita
+IconTheme=Elementary
+CursorTheme=Vanilla-DMZ
 CursorSize=24
