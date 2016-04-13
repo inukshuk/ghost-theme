@@ -1925,11 +1925,6 @@ headerbar button {
 .titlebar, .titlebar:backdrop {
   border-top-left-radius: 7px;
   border-top-right-radius: 7px; }
-window.ssd .titlebar {
-  border: none;
-  box-shadow: none;
-  background-image: none;
-  background-color: #1c1c1c; }
 
 separator:first-child + headerbar, separator:first-child + headerbar:backdrop, headerbar:first-child, headerbar:first-child:backdrop {
   border-top-left-radius: 7px; }
@@ -1945,6 +1940,12 @@ window.csd > .titlebar:not(headerbar) {
   box-shadow: none; }
 .titlebar:not(headerbar) > separator {
   background-color: black; }
+
+window.ssd headerbar.titlebar {
+  border: none;
+  box-shadow: none;
+  background-image: none;
+  background-color: #1c1c1c; }
 
 /************
  * Pathbars *
