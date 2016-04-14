@@ -14,7 +14,8 @@
   outline-style: dashed;
   outline-offset: -3px;
   outline-width: 1px;
-  -gtk-outline-radius: 2px; }
+  -gtk-outline-radius: 2px;
+  -gtk-secondary-caret-color: #215d9c; }
 
 /***************
  * Base States *
@@ -74,6 +75,25 @@ textview text {
   textview text:selected {
     border-radius: 3px; }
 
+textview border {
+  background-color: #1c1c1c;
+  background-image: image(rgba(0, 0, 0, 0.2));
+  background-repeat: no-repeat; }
+  textview border:backdrop {
+    background-color: #1e1e1e; }
+  textview border.bottom {
+    background-size: 100% 1px;
+    background-position: top; }
+  textview border.top {
+    background-size: 100% 1px;
+    background-position: bottom; }
+  textview border.left {
+    background-size: 1px 100%;
+    background-position: right; }
+  textview border.right {
+    background-size: 1px 100%;
+    background-position: left; }
+
 .rubberband,
 rubberband,
 flowbox rubberband,
@@ -120,12 +140,7 @@ assistant .sidebar label {
 assistant .sidebar label.highlight {
   background-color: #464646; }
 
-textview {
-  background-color: #1c1c1c; }
-  textview:backdrop {
-    background-color: #1e1e1e; }
-
-popover.background.touch-selection, popover.background.magnifier, .csd popover.background.touch-selection, .csd popover.background.magnifier, popover.background.osd, .csd popover.background.osd, .app-notification,
+.csd popover.background.touch-selection, .csd popover.background.magnifier, popover.background.touch-selection, popover.background.magnifier, .csd popover.background.osd, popover.background.osd, .app-notification,
 .app-notification.frame, .osd .scale-popup, .osd {
   color: #eeeeec;
   border: none;
@@ -641,7 +656,7 @@ button.osd {
     text-shadow: none;
     -gtk-icon-shadow: none;
     border: none; }
-popover.background.touch-selection button, popover.background.magnifier button, .csd popover.background.touch-selection button, .csd popover.background.magnifier button, .app-notification button,
+.csd popover.background.touch-selection button, .csd popover.background.magnifier button, popover.background.touch-selection button, popover.background.magnifier button, .app-notification button,
 .app-notification.frame button, .osd
 button {
   color: #eeeeec;
@@ -2222,7 +2237,7 @@ popover.background {
   border-radius: 5px;
   background-color: #1c1c1c;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
-  popover.background, .csd popover.background {
+  .csd popover.background, popover.background {
     border: 1px solid black; }
   popover.background:backdrop {
     background-color: #1c1c1c;
@@ -2233,7 +2248,7 @@ popover.background {
   popover.background > toolbar {
     border-style: none;
     background-color: transparent; }
-  popover.background.touch-selection, popover.background.magnifier, .csd popover.background.touch-selection, .csd popover.background.magnifier {
+  .csd popover.background.touch-selection, .csd popover.background.magnifier, popover.background.touch-selection, popover.background.magnifier {
     border: 1px solid rgba(255, 255, 255, 0.1); }
   popover.background separator {
     margin: 3px; }
@@ -2949,7 +2964,7 @@ scale highlight, progressbar progress {
     scale highlight:backdrop:disabled, progressbar progress:backdrop:disabled, progressbar:backdrop progress:disabled {
       background-color: transparent;
       border-color: transparent; }
-  row:selected scale highlight, scale row:selected highlight, row:selected progressbar progress, progressbar row:selected progress, row:selected scale highlight:disabled, scale row:selected highlight:disabled, row:selected progressbar progress:disabled, progressbar row:selected progress:disabled {
+  row:selected scale highlight:disabled, scale row:selected highlight:disabled, row:selected progressbar progress:disabled, progressbar row:selected progress:disabled, row:selected scale highlight, scale row:selected highlight, row:selected progressbar progress, progressbar row:selected progress {
     border-color: #0f2b48; }
   .osd scale highlight, scale .osd highlight, .osd progressbar progress, progressbar .osd progress {
     border-color: rgba(0, 0, 0, 0.7); }
