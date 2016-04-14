@@ -39,6 +39,8 @@ $button_transition: all 200ms $ease-out-quad;
   outline-offset: -3px;
   outline-width: 1px;
   -gtk-outline-radius: 2px;
+
+  -gtk-secondary-caret-color: $selected_bg_color
 }
 
 
@@ -119,6 +121,34 @@ textview {
   }
 }
 
+textview border {
+  background-color: mix($bg_color, $base_color, 50%);
+  background-image: image(transparentize(black, 0.8)); // HACK: the border node just draws background so,
+  background-repeat: no-repeat;                        // using a background-image to draw the border
+
+  &:backdrop { background-color: mix($backdrop_bg_color, $backdrop_base_color, 50%); }
+
+  &.bottom {
+    background-size: 100% 1px;
+    background-position: top;
+  }
+
+  &.top {
+    background-size: 100% 1px;
+    background-position: bottom;
+  }
+
+  &.left {
+    background-size: 1px 100%;
+    background-position: right;
+  }
+
+  &.right {
+    background-size: 1px 100%;
+    background-position: left;
+  }
+}
+
 iconview { @extend .view; }
 
 .rubberband,
@@ -195,12 +225,6 @@ assistant {
   .sidebar label { padding: 6px 12px; }
 
   .sidebar label.highlight { background-color: mix($bg_color, $fg_color, 80%); }
-}
-
-textview { // This will get overridden by .view, needed by gedit line numbers
-  background-color: mix($bg_color, $base_color, 50%);
-
-  &:backdrop { background-color: mix($backdrop_bg_color, $backdrop_base_color, 50%); }
 }
 
 %osd, .osd {
@@ -832,7 +856,7 @@ button {
 // More inline toolbar buttons
 toolbar.inline-toolbar toolbutton,
 toolbar.inline-toolbar toolbutton:backdrop {
-  & > button.flat { @extend %linked_middle; }
+  > button.flat { @extend %linked_middle; }
 
   &:first-child > button.flat { @extend %linked:first-child; }
 
@@ -1578,7 +1602,7 @@ treeview.view {
   border-left-color: mix($fg_color, $base_color, 50%); // this is actually the tree lines color,
   border-top-color: $bg_color;                         // while this is the grid lines color, better then nothing
 
-  & rubberband { @extend rubberband; } // to avoid borders being overridden by the previously set props
+  rubberband { @extend rubberband; } // to avoid borders being overridden by the previously set props
 
   &:selected {
     &:focus, & {
@@ -1927,7 +1951,7 @@ popover.background {
   border-radius: 5px;
   background-color: $popover_bg_color;
 
-  &, .csd & { border: 1px solid $borders_color; }
+  .csd &, & { border: 1px solid $borders_color; }
 
   box-shadow: 0 1px 2px transparentize(black, 0.7);
 
@@ -1943,7 +1967,7 @@ popover.background {
     background-color: transparent;
   }
 
-  &, .csd & {
+  .csd &, & {
     &.touch-selection,
     &.magnifier {
       @extend %osd;
@@ -2744,7 +2768,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
   }
 
   // ...on selected list rows
-  row:selected & { &, &:disabled { border-color: $selected_borders_color; } }
+  row:selected & { &:disabled, & { border-color: $selected_borders_color; } }
 
   // OSD
   .osd & {
@@ -3891,7 +3915,7 @@ infobar { border-style: none; }
     }
   }
 
-  & label:selected { &:focus, &:hover, & { background-color: darken($selected_bg_color, 10%); }}
+  label:selected { &:focus, &:hover, & { background-color: darken($selected_bg_color, 10%); }}
 
   *:link { @extend %link_selected; }
 }
@@ -4096,7 +4120,7 @@ colorchooser .popover.osd { border-radius: 5px; }
       border-radius: 5px;
     }
 
-    &:backdrop { &:hover, &:disabled, & {@extend %undecorated_button; }}
+    &:backdrop { &:hover, &:disabled, & { @extend %undecorated_button; }}
   }
 }
 
