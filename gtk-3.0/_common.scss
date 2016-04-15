@@ -1552,7 +1552,8 @@ headerbar {
   @extend %titlebar;
 }
 
-window.ssd headerbar.titlebar {
+window.ssd headerbar.titlebar,
+window.csd headerbar.titlebar.default-decoration {
   border: none;
   box-shadow: none;
   background-image: none;

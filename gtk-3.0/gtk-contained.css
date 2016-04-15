@@ -1963,7 +1963,8 @@ window.csd > .titlebar:not(headerbar) {
 .titlebar:not(headerbar) > separator {
   background-color: #9d9d99; }
 
-window.ssd headerbar.titlebar {
+window.ssd headerbar.titlebar,
+window.csd headerbar.titlebar.default-decoration {
   border: none;
   box-shadow: none;
   background-image: none;
