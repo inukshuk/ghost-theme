@@ -1518,13 +1518,6 @@ headerbar {
   }
 }
 
-window.ssd headerbar.titlebar {
-  border: none;
-  box-shadow: none;
-  background-image: none;
-  background-color: $bg_color;
-}
-
 headerbar {
   // add vertical margins to common widget on the headerbar to avoid them spanning the whole height
   entry,
@@ -1568,6 +1561,15 @@ headerbar {
   > separator { background-color: $borders_color; }  // FIXME: use darker border?
 
   @extend %titlebar;
+}
+
+
+window.csd headerbar.default-decoration.titlebar,
+window.ssd headerbar.titlebar {
+  border: none;
+  box-shadow: none;
+  background-image: none;
+  background-color: $bg_color;
 }
 
 

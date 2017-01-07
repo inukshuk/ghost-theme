@@ -1984,12 +1984,6 @@ headerbar {
     border-radius: 0;
     box-shadow: none; }
 
-window.ssd headerbar.titlebar {
-  border: none;
-  box-shadow: none;
-  background-image: none;
-  background-color: #f4f4f3; }
-
 headerbar entry,
 headerbar spinbutton,
 headerbar separator,
@@ -2018,6 +2012,13 @@ window.csd > .titlebar:not(headerbar) {
   box-shadow: none; }
 .titlebar:not(headerbar) > separator {
   background-color: #c3c3be; }
+
+window.csd headerbar.default-decoration.titlebar,
+window.ssd headerbar.titlebar {
+  border: none;
+  box-shadow: none;
+  background-image: none;
+  background-color: #f4f4f3; }
 
 /************
  * Pathbars *
